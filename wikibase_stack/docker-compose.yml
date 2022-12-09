@@ -69,6 +69,7 @@ services:
     restart: unless-stopped
     volumes:
       - mediawiki-mysql-data:/var/lib/mysql
+      - ./conf.d:/etc/mysql/conf.d
     environment:
       # CONFIG - Change the default values below (should match values passed to wikibase)
       MYSQL_DATABASE: ${DB_NAME}
