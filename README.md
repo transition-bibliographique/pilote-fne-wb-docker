@@ -10,3 +10,13 @@ Databases: mariadb:10.9
 <p>et <a href="https://hub.docker.com/_/mariadb/tags" title="mariadb">https://hub.docker.com/_/mariadb/tags</a></p>
 <pre><code>mariadb:10.9
 </code></pre>
+
+<p>Voir l'allocateur de mémoire :</p>
+<pre><code>MariaDB [(none)]&gt; SHOW VARIABLES LIKE 'version_malloc_library';
++------------------------+------------------------------------------------------------+
+| Variable_name          | Value                                                      |
++------------------------+------------------------------------------------------------+
+| version_malloc_library | jemalloc 5.2.1-0-gea6b3e973b477b8061e0076bb257dbd7f3faa756 |
++------------------------+------------------------------------------------------------+
+1 row in set (0.001 sec)
+</code></pre>
