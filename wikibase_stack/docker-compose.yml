@@ -62,7 +62,10 @@ services:
       MAX_JOBS: ${MAX_JOBS}
 
   mysql:
-    image: "${MYSQL_IMAGE_NAME}"
+#    image: "${MYSQL_IMAGE_NAME}"
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
     volumes:
       - mediawiki-mysql-data:/var/lib/mysql
