@@ -71,6 +71,7 @@ services:
       - mediawiki-mysql-data:/var/lib/mysql
       - ./conf.d:/etc/mysql/conf.d
     environment:
+      LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
       # CONFIG - Change the default values below (should match values passed to wikibase)
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USER}
