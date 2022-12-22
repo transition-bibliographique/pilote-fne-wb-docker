@@ -67,6 +67,8 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
+    ports:
+      - 3306:3306  
     volumes:
       - mediawiki-mysql-data:/var/lib/mysql
       - ./conf.d:/etc/mysql/conf.d
@@ -81,6 +83,13 @@ services:
       default:
         aliases:
          - mysql.svc
+    sysctls:
+      kernel.shmmax: 3758096384 
+      kernel.shmall: 917504      
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
 
 volumes:
   shared:

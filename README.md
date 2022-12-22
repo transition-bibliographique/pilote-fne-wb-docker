@@ -20,3 +20,20 @@ Databases: mariadb:10.9
 +------------------------+------------------------------------------------------------+
 1 row in set (0.001 sec)
 </code></pre>
+
+Environnement : 
+
+VM Ubuntu Server 22.04 LTS
+ 
+8 vcores, 6 GB RAM
+
+Docker Version 20.10.21
+
+Docker Compose Version V2.14.0
+
+Modifications de /etc/sysctl.conf (999 = groupid de mysql)
+
+    vm.swappiness=1
+	vm.hugetlb_shm_group=999
+	vm.nr_hugepages=393
+	fs.aio-max-nr=524288
