@@ -68,7 +68,7 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - 3306:3306  
+      - 23306:3306  
     volumes:
       - mediawiki-mysql-data:/var/lib/mysql
       - ./conf.d:/etc/mysql/conf.d
