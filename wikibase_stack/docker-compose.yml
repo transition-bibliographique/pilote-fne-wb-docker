@@ -70,7 +70,7 @@ services:
     ports:
       - 23306:3306  
     volumes:
-      - mediawiki-mysql-data:/var/lib/mysql
+      - ./volume_mysql:/var/lib/mysql
       - ./conf.d:/etc/mysql/conf.d
     environment:
       LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
@@ -91,6 +91,6 @@ services:
         soft: -1
         hard: -1
 
-volumes:
-  shared:
-  mediawiki-mysql-data:
+#volumes:
+#  shared:
+#  mediawiki-mysql-data:
