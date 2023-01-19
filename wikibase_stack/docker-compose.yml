@@ -91,6 +91,6 @@ services:
         soft: -1
         hard: -1
 
-#volumes:
-#  shared:
+volumes:
+  shared:
 #  mediawiki-mysql-data:
