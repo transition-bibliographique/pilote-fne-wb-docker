@@ -29,7 +29,7 @@ services:
       - shared:/var/www/html/:rw
 
       ## Uncomment this next line to mount your own LocalSettings.php file
-      #- ./LocalSettings.php:/var/www/html/LocalSettings.d/LocalSettings.override.php
+      - ./LocalSettings.php:/var/www/html/LocalSettings.d/LocalSettings.override.php
 
     networks:
       default:
