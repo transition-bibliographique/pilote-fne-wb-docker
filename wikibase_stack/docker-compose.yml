@@ -78,7 +78,8 @@ services:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASS}
-      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+#      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD_HASH_FILE: /run/secrets/mysql_root_password_hash
     networks:
       default:
         aliases:
@@ -94,3 +95,7 @@ services:
 volumes:
   shared:
 #  mediawiki-mysql-data:
+
+secrets:
+  mysql_root_password_hash:
+    file: ./mysql_root_password_hash.txt # put root password hash to this file value calculated with SELECT PASSWORD('my-secret-pw')
