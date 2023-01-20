@@ -1,6 +1,6 @@
 <?php
 
-$wgServer = false;
+$wgServer = 'https://www.fichier-entites.fr';
 
 // disable language selection
 $wgHiddenPrefs[] = 'language';
