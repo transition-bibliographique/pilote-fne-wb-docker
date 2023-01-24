@@ -37,3 +37,5 @@ Modifications de /etc/sysctl.conf (999 = groupid de mysql)
 	vm.hugetlb_shm_group=999
 	vm.nr_hugepages=393
 	fs.aio-max-nr=524288
+	
+[![](https://docs.google.com/drawings/d/e/2PACX-1vTMQu7OBaHg4f860AuCXSrhflxtFj5QXPD6nHWosEYLcVyILpyDS3hMcXZZgXWPj2z7gAutHRUHWz2n/pub?w=859&h=554)](https://docs.google.com/drawings/d/13AarshJKrtwH6Os5OPT__RXS_cfp4SKtkzeWBlA6nhY/edit?usp=sharing)
