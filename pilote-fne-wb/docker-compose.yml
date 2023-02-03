@@ -17,6 +17,7 @@ x-common-variables: &wikibase_variables
 services:
   pilote-fne-wikibase:
     image: "${WIKIBASE_BUNDLE_IMAGE_NAME}"
+    container_name: pilote-fne-wikibase
     links:
       - pilote-fne-mysql
     depends_on:
@@ -43,6 +44,7 @@ services:
 
   pilote-fne-wikibase_jobrunner:
     image: "${WIKIBASE_BUNDLE_IMAGE_NAME}"
+    container_name: pilote-fne-wikibase_jobrunner
     entrypoint: /bin/bash
     command:  /jobrunner-entrypoint.sh
     links:
@@ -66,6 +68,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: pilote-fne-mysql
     restart: unless-stopped
     ports:
       - 23306:3306  
