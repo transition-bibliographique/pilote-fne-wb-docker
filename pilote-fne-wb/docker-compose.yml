@@ -15,7 +15,7 @@ x-common-variables: &wikibase_variables
   WIKIBASE_HOST: ${WIKIBASE_HOST}
 
 services:
-  wikibase:
+  pilote-fne-wikibase:
     image: "${WIKIBASE_BUNDLE_IMAGE_NAME}"
     links:
       - mysql
@@ -41,7 +41,7 @@ services:
       WIKIBASE_PINGBACK:
       MW_WG_ENABLE_UPLOADS:
 
-  wikibase_jobrunner:
+  pilote-fne-wikibase_jobrunner:
     image: "${WIKIBASE_BUNDLE_IMAGE_NAME}"
     entrypoint: /bin/bash
     command:  /jobrunner-entrypoint.sh
@@ -61,7 +61,7 @@ services:
       <<: *wikibase_variables
       MAX_JOBS: ${MAX_JOBS}
 
-  mysql:
+  pilote-fne-mysql:
 #    image: "${MYSQL_IMAGE_NAME}"
     build:
       context: .
