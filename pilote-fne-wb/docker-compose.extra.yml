@@ -5,6 +5,7 @@ services:
 
   pilote-fne-wdqs-frontend:
     image: "${WDQS_FRONTEND_IMAGE_NAME}"
+    container_name: pilote-fne-wdqs-frontend
     restart: unless-stopped
     mem_limit: ${MEM_LIMIT}
     ports:
@@ -21,6 +22,7 @@ services:
 
   pilote-fne-wdqs:
     image: "${WDQS_IMAGE_NAME}"
+    container_name: pilote-fne-wdqs
     restart: unless-stopped
     mem_limit: ${MEM_LIMIT}
     command: /runBlazegraph.sh
@@ -39,6 +41,7 @@ services:
 
   pilote-fne-wdqs-proxy:
     image: "${WDQS_PROXY_IMAGE_NAME}"
+    container_name: pilote-fne-wdqs-proxy
     restart: unless-stopped
     mem_limit: ${MEM_LIMIT}
     environment:
@@ -52,6 +55,7 @@ services:
 
   pilote-fne-wdqs-updater:
     image: "${WDQS_IMAGE_NAME}"
+    container_name: pilote-fne-wdqs-updater
     restart: unless-stopped
     mem_limit: ${MEM_LIMIT}
     command: /runUpdate.sh
