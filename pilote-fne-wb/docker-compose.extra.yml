@@ -1,0 +1,75 @@
+# Additional services example
+version: '3.4'
+
+services:
+
+  pilote-fne-wdqs-frontend:
+    image: "${WDQS_FRONTEND_IMAGE_NAME}"
+    restart: unless-stopped
+    mem_limit: ${MEM_LIMIT}
+    ports:
+      - "${WDQS_FRONTEND_PORT}:80"
+    depends_on:
+      - pilote-fne-wdqs-proxy
+    networks:
+      default:
+        aliases:
+          - ${WDQS_FRONTEND_HOST}
+    environment:
+      - WIKIBASE_HOST=${WIKIBASE_HOST}
+      - WDQS_HOST=wdqs-proxy.svc
+
+  pilote-fne-wdqs:
+    image: "${WDQS_IMAGE_NAME}"
+    restart: unless-stopped
+    mem_limit: ${MEM_LIMIT}
+    command: /runBlazegraph.sh
+    volumes:
+      - query-service-data:/wdqs/data
+    networks:
+      default:
+        aliases:
+          - wdqs.svc
+    environment:
+      - WIKIBASE_HOST=${WIKIBASE_HOST}
+      - WDQS_HOST=wdqs.svc
+      - WDQS_PORT=9999
+    expose:
+      - 9999
+
+  pilote-fne-wdqs-proxy:
+    image: "${WDQS_PROXY_IMAGE_NAME}"
+    restart: unless-stopped
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - PROXY_PASS_HOST=wdqs.svc:9999
+    depends_on:
+      - pilote-fne-wdqs
+    networks:
+      default:
+        aliases:
+          - wdqs-proxy.svc
+
+  pilote-fne-wdqs-updater:
+    image: "${WDQS_IMAGE_NAME}"
+    restart: unless-stopped
+    mem_limit: ${MEM_LIMIT}
+    command: /runUpdate.sh
+    depends_on:
+      - pilote-fne-wdqs
+      - pilote-fne-wikibase
+    networks:
+      default:
+        aliases:
+          - wdqs-updater.svc
+    environment:
+      #- WIKIBASE_HOST=${WIKIBASE_HOST}
+      - WIKIBASE_HOST=${WIKIBASE_URL_PUBLIQUE}
+      - WDQS_HOST=wdqs.svc
+      - WDQS_PORT=9999
+      # CONFIG - WIKIBASE_SCHEME can be set to 'https' if the updater should expect https concept uris
+      - WIKIBASE_SCHEME=${WIKIBASE_SCHEME}
+
+volumes:
+  LocalSettings:
+  query-service-data:

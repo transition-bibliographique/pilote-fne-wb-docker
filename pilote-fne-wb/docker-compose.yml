@@ -42,6 +42,8 @@ services:
       <<: *wikibase_variables
       WIKIBASE_PINGBACK:
       MW_WG_ENABLE_UPLOADS:
+      WIKIBASE_URL_PUBLIQUE: ${WIKIBASE_URL_PUBLIQUE}
+      WIKIBASE_SCHEME: ${WIKIBASE_SCHEME}
 
   pilote-fne-wikibase_jobrunner:
     image: "${WIKIBASE_BUNDLE_IMAGE_NAME}"
