@@ -63,6 +63,17 @@ sudo docker-compose -f docker-compose.yml -f docker-compose.extra.yml down --vol
 sudo rm -fr volume_mysql/*  
 </code></pre>
 
+
+Pour dumper les données :
+<pre><code>
+sudo docker exec pilote-fne-mysql sh -c 'exec mysqldump -u sqluser -pchange-this-sqlpassword my_wiki' > backup.sql
+</code></pre>
+
+Pour restorer un dump :
+<pre><code>
+sudo docker exec -i pilote-fne-mysql sh -c 'exec mysql -u sqluser -pchange-this-sqlpassword my_wiki' < backup.sql
+</code></pre>
+
 [![](https://docs.google.com/drawings/d/e/2PACX-1vTMQu7OBaHg4f860AuCXSrhflxtFj5QXPD6nHWosEYLcVyILpyDS3hMcXZZgXWPj2z7gAutHRUHWz2n/pub?w=859&h=554)](https://docs.google.com/drawings/d/13AarshJKrtwH6Os5OPT__RXS_cfp4SKtkzeWBlA6nhY/edit?usp=sharing)
 
 
