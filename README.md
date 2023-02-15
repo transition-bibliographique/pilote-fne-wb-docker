@@ -39,7 +39,7 @@ Modifications de /etc/sysctl.conf (999 = groupid de mysql)
 	fs.aio-max-nr=524288
 
 
-Attention à bien modifier les valeurs de :
+Attention à bien modifier les valeurs du .env :  
 WIKIBASE_URL_PUBLIQUE=www.fichier-entites.fr  
 WIKIBASE_SCHEME=https  
 
