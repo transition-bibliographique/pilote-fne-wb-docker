@@ -5,7 +5,7 @@
 $wgServer = getenv('WIKIBASE_SCHEME') . "://" . getenv('WIKIBASE_URL_PUBLIQUE');
 
 # Tentative pour modificer le conceptBaseUri qui fait planter wdqs_updater :
-# Ne fonctionne pas car surpassé par wgServer :
+# Ne fonctionne pas car surpassé par  wgServer :
 # https://phabricator.wikimedia.org/T244637
 #$wgWBRepoSettings['conceptBaseUri'] = "http://www.fichier-entites.fr/entity/";
 
