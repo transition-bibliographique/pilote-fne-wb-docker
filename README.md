@@ -40,10 +40,17 @@ Modifications de /etc/sysctl.conf (999 = groupid de mysql)
 
 
 Attention à bien modifier les valeurs du .env :  
-<pre><code>WIKIBASE_URL_PUBLIQUE=www.fichier-entites.fr  
+<pre><code>
+WIKIBASE_URL_PUBLIQUE=www.fichier-entites.fr  
 WIKIBASE_SCHEME=https
 </code></pre>
 
+Modifier les droits des fichiers suivants une fois le dépôt cloné : 
+<pre><code>
+sudo chmod -R 755 conf.d
+sudo chmod 0444 conf.d/my.cnf  
+sudo chmod 777 LocalSettings.php 
+</code></pre>
 
 Pour lancer Wikibase :
 <pre><code>
