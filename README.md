@@ -39,6 +39,11 @@ Modifications de /etc/sysctl.conf (999 = groupid de mysql)
 	fs.aio-max-nr=524288
 
 
+Attention à bien modifier les valeurs de :
+WIKIBASE_URL_PUBLIQUE=www.fichier-entites.fr  
+WIKIBASE_SCHEME=https  
+
+
 Pour lancer Wikibase :  
 sudo docker-compose -f docker-compose.yml -f docker-compose.extra.yml up -d  
 
