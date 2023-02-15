@@ -1,7 +1,7 @@
 #!/bin/bash
 
 containerWikibase="pilote-fne-wikibase"
-containerWDQS = "pilote-fne-wdqs"
+containerWDQS="pilote-fne-wdqs"
 
 echo "Indexation WDQS / SPARQ"
 
