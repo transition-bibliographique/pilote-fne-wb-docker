@@ -1,4 +1,4 @@
-<p>Ce répertoire doit permettre de suivre la personnalisation de Wikibase docker depuis la configuration initiale  wdme9 </p>
+<p>Ce répertoire doit permettre de suivre la personnalisation de Wikibase docker depuis la configuration initiale wmde9 </p>
 <pre><code>MediaWiki 1.37 
 Databases: mariadb:10.9
 </code></pre>
@@ -40,17 +40,21 @@ Modifications de /etc/sysctl.conf (999 = groupid de mysql)
 
 
 Attention à bien modifier les valeurs du .env :  
-WIKIBASE_URL_PUBLIQUE=www.fichier-entites.fr  
-WIKIBASE_SCHEME=https  
+<pre><code>WIKIBASE_URL_PUBLIQUE=www.fichier-entites.fr  
+WIKIBASE_SCHEME=https
+</code></pre>
 
 
-Pour lancer Wikibase :  
+Pour lancer Wikibase :
+<pre><code>
 sudo docker-compose -f docker-compose.yml -f docker-compose.extra.yml up -d  
+</code></pre>
 
-Pour l’arrêter (avec WDQS) et supprimer les données de MariaDB :    
+Pour l’arrêter (avec WDQS) et supprimer les données de MariaDB :  
+<pre><code>
 sudo docker-compose -f docker-compose.yml -f docker-compose.extra.yml down --volumes --remove-orphans    
 sudo rm -fr volume_mysql/*  
-
+</code></pre>
 
 [![](https://docs.google.com/drawings/d/e/2PACX-1vTMQu7OBaHg4f860AuCXSrhflxtFj5QXPD6nHWosEYLcVyILpyDS3hMcXZZgXWPj2z7gAutHRUHWz2n/pub?w=859&h=554)](https://docs.google.com/drawings/d/13AarshJKrtwH6Os5OPT__RXS_cfp4SKtkzeWBlA6nhY/edit?usp=sharing)
 
