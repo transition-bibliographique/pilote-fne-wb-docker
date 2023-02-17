@@ -68,35 +68,33 @@ services:
       MAX_JOBS: ${MAX_JOBS}
 
   pilote-fne-mysql:
-#    image: "${MYSQL_IMAGE_NAME}"
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: mysql/mysql-server:8.0.32-amd64
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
     container_name: pilote-fne-mysql
     restart: unless-stopped
-    mem_limit: ${MEM_LIMIT}
+#    mem_limit: ${MEM_LIMIT}
     ports:
       - 23306:3306  
     volumes:
       - ./volume_mysql:/var/lib/mysql
-      - ./conf.d:/etc/mysql/conf.d
+#      - ./conf.d:/etc/mysql/conf.d
+      - ./conf.d/my.cnf:/etc/my.cnf:ro
     environment:
-      LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+#      LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
       # CONFIG - Change the default values below (should match values passed to wikibase)
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASS}
-#      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
-      MARIADB_ROOT_PASSWORD_HASH_FILE: /run/secrets/mysql_root_password_hash
-    secrets:
-      - mysql_root_password_hash   
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'   
     networks:
       default:
         aliases:
          - mysql.svc
-    sysctls:
-      kernel.shmmax: 3758096384 
-      kernel.shmall: 917504      
+#    sysctls:
+#      kernel.shmmax: 3758096384 
+#      kernel.shmall: 917504      
     ulimits:
       memlock:
         soft: -1
@@ -106,6 +104,3 @@ volumes:
   shared:
 #  mediawiki-mysql-data:
 
-secrets:
-  mysql_root_password_hash:
-    file: ./mysql_root_password_hash.txt # put root password hash to this file value calculated with SELECT PASSWORD('my-secret-pw')
