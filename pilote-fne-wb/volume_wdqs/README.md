@@ -1,0 +1,1 @@
+remove dir volume_wdqs after each docker-compose down and recreate before first up or mysql will not be able to start and persists datas.

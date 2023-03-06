@@ -61,6 +61,7 @@ Pour l’arrêter (avec WDQS) et supprimer les données de MariaDB :
 <pre><code>
 sudo docker-compose -f docker-compose.yml -f docker-compose.extra.yml down --volumes    
 sudo rm -fr volume_mysql/*  
+sudo rm -fr volume_wdqs/*
 </code></pre>
 
 

@@ -27,7 +27,7 @@ services:
     mem_limit: ${MEM_LIMIT}
     command: /runBlazegraph.sh
     volumes:
-      - query-service-data:/wdqs/data
+      - ./volume_wdqs:/wdqs/data
     networks:
       default:
         aliases:
@@ -76,4 +76,3 @@ services:
 
 volumes:
   LocalSettings:
-  query-service-data:
